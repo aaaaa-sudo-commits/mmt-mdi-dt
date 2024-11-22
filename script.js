@@ -325,11 +325,11 @@ const questions = [
     group: 4,
   },
 ];
-
 const questionsDiv = document.getElementById("questions");
 const resultDiv = document.getElementById("result");
+const linkContainer = document.getElementById("link-container");
 
-// Dynamically generate questions
+// Generate questions dynamically
 questions.forEach((q) => {
   const row = document.createElement("tr");
 
@@ -356,7 +356,7 @@ questions.forEach((q) => {
   questionsDiv.appendChild(row);
 });
 
-// Calculate results
+// Calculate results and display URL
 document.getElementById("submit-btn").addEventListener("click", () => {
   const answers = Array.from(
     new FormData(document.getElementById("quiz-form")).entries()
@@ -381,4 +381,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
   ];
 
   resultDiv.textContent = `Your MBTI Type is: ${results.join("")}`;
+
+  // Display Shopee link
+  linkContainer.style.display = "block";
 });
