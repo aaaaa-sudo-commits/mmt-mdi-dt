@@ -402,7 +402,6 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     results.T > results.F ? "T" : "F",
     results.J > results.P ? "J" : "P",
   ];
-  console.log("loging test", results.P, results.J);
   resultDiv.textContent = `Your MBTI Type is: ${mbti.join("")}`;
   linkContainer.style.display = "block"; // Tampilkan link Shopee
 });
