@@ -263,4 +263,34 @@ submitBtn.addEventListener("click", () => {
     "result"
   ).textContent = `Your MBTI Type is: ${mbti.join("")}`;
   document.getElementById("link-container").style.display = "block";
+
+  // Prepare data for Google Sheets
+  const mbtiType = mbti.join("");
+  const data = {
+    name: "User Name", // Replace with a user input if needed
+    mbtiType,
+    answers: answers.map(([key, value]) => ({ question: key, answer: value })),
+  };
+
+  // Send data to Google Sheets
+  fetch(
+    "https://script.google.com/macros/s/AKfycbyc562aj9UWa84WXwcnuvQzcT_y05vyoKV-ZIrEr0Z_JjoUV9x-0HeVQtMFddJwJYt3/exec",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }
+  )
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      document.getElementById(
+        "result"
+      ).textContent = `Your MBTI Type is: ${mbtiType}`;
+      document.getElementById("link-container").style.display = "block";
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      // alert("There was an error saving your data. Please try again.");
+    });
 });
