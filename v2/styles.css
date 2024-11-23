@@ -5,11 +5,42 @@ body {
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
+  padding-bottom: 60px; /* Space for fixed Submit button */
 }
 
+/* Progress Bar */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e0e0e0;
+  border-bottom: 2px solid #ccc;
+  z-index: 1000;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#progress-bar {
+  height: 100%;
+  background: #007bff;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+#progress-counter {
+  margin-left: auto;
+  padding-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Container */
 .container {
   max-width: 600px;
-  margin: 20px auto;
+  margin: 60px auto 20px; /* Leave space for fixed progress bar */
   padding: 15px;
   background: #ffffff;
   border-radius: 8px;
@@ -51,21 +82,28 @@ h1 {
   margin-right: 5px;
 }
 
-/* Button */
-button {
-  display: block;
+/* Submit Button */
+#submit-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 15px 0;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-top: 2px solid #ccc;
+  z-index: 1000;
 }
 
-button:hover {
+#submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#submit-btn:hover:not(:disabled) {
   background-color: #0056b3;
 }
 

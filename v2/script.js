@@ -350,7 +350,14 @@ const questions = [
     result: { a: "E", b: "I" },
   },
 ];
+
 const questionsDiv = document.getElementById("questions");
+const progressBar = document.getElementById("progress-bar");
+const progressCounter = document.getElementById("progress-counter");
+const submitBtn = document.getElementById("submit-btn");
+
+let totalQuestions = questions.length;
+let answeredQuestions = 0;
 
 // Generate questions dynamically
 questions.forEach((q) => {
@@ -374,7 +381,29 @@ questions.forEach((q) => {
   questionsDiv.appendChild(questionDiv);
 });
 
-document.getElementById("submit-btn").addEventListener("click", () => {
+// Update progress bar and counter
+function updateProgress() {
+  const answeredInputs = document.querySelectorAll(
+    'input[type="radio"]:checked'
+  ).length;
+  const progress = (answeredInputs / totalQuestions) * 100;
+  progressBar.style.width = `${progress}%`;
+  answeredQuestions = answeredInputs;
+
+  // Update counter text
+  progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
+
+  // Enable submit button when all questions are answered
+  submitBtn.disabled = answeredQuestions < totalQuestions;
+}
+
+// Add event listener to all radio buttons
+document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+  radio.addEventListener("change", updateProgress);
+});
+
+// Submit button logic
+submitBtn.addEventListener("click", () => {
   const formData = new FormData(document.getElementById("quiz-form"));
   const results = { I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
