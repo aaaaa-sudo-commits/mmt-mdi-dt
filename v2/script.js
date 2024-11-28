@@ -232,6 +232,12 @@ function updateProgress() {
   submitBtn.disabled = answeredQuestions < totalQuestions;
 }
 
+// Initialize progress counter on page load
+document.addEventListener("DOMContentLoaded", () => {
+  progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
+  progressBar.style.width = "0%";
+});
+
 // Add event listener to all radio buttons
 document.querySelectorAll('input[type="radio"]').forEach((radio) => {
   radio.addEventListener("change", updateProgress);
@@ -283,7 +289,7 @@ submitBtn.addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((result) => {
-      console.log("Success:", result);
+      // console.log("Success:", result);
       document.getElementById(
         "result"
       ).textContent = `Your MBTI Type is: ${mbtiType}`;
