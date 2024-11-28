@@ -1,10 +1,10 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Match the elegant font style */
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f7f4f0; /* Light beige background */
+  color: #3a3a3a; /* Neutral dark text */
   padding-bottom: 60px; /* Space for fixed Submit button */
 }
 
@@ -14,17 +14,17 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: #e0e0e0;
-  border-bottom: 2px solid #ccc;
+  background: #e6e1da; /* Softer beige tone */
+  border-bottom: 2px solid #d3cec7;
   z-index: 1000;
-  height: 30px;
+  height: 35px;
   display: flex;
   align-items: center;
 }
 
 #progress-bar {
   height: 100%;
-  background: #007bff;
+  background: #5c5246; /* Muted dark brown */
   width: 0%;
   transition: width 0.3s;
 }
@@ -34,48 +34,51 @@ body {
   padding-right: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #333;
+  color: #5c5246;
 }
 
 /* Container */
 .container {
-  max-width: 600px;
-  margin: 60px auto 20px; /* Leave space for fixed progress bar */
-  padding: 15px;
+  max-width: 700px; /* Slightly wider for a more open feel */
+  margin: 80px auto 20px; /* Space for fixed progress bar */
+  padding: 20px;
   background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #3a3a3a;
 }
 
 /* Question Layout */
 .question {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f4f4f4;
+  border: 1px solid #d3cec7; /* Subtle border */
+  border-radius: 10px;
+  background: #f2ede6; /* Soft beige */
 }
 
 .question h2 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  color: #3a3a3a;
 }
 
 .options {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
 .options label {
   font-size: 16px;
+  font-family: "Arial", sans-serif;
+  color: #3a3a3a;
 }
 
 .options input[type="radio"] {
@@ -88,34 +91,59 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #007bff;
+  background-color: #5c5246; /* Muted dark brown */
   color: white;
   border: none;
   padding: 15px 0;
   font-size: 16px;
   cursor: pointer;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid #d3cec7;
   z-index: 1000;
 }
 
 #submit-btn:disabled {
-  background-color: #cccccc;
+  background-color: #9b9284; /* Softer muted brown for disabled */
   cursor: not-allowed;
 }
 
 #submit-btn:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #3f362e; /* Darker shade on hover */
 }
 
 /* Result and Link */
 #result {
   text-align: center;
-  font-size: 18px;
-  margin-top: 20px;
+  font-size: 20px;
+  margin-top: 30px;
+  color: #3a3a3a;
 }
 
 #shopee-link {
   font-size: 18px;
-  color: #007bff;
+  color: #5c5246; /* Match button color */
   text-decoration: underline;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .container {
+    margin: 100px 10px 20px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .question h2 {
+    font-size: 16px;
+  }
+
+  #submit-btn {
+    padding: 12px 0;
+    font-size: 14px;
+  }
 }
