@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="progress-container">
-      <div id="progress-bar"></div>
-      <span id="progress-counter">0/60</span>
-    </div>
     <div class="container">
-      <h1>MBTI Personality Test</h1>
+      <h1>MBTI Test</h1>
       <form id="quiz-form">
-        <div id="questions">
-          <!-- Questions will be dynamically added here -->
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Pernyataan A</th>
+              <th>A</th>
+              <th>B</th>
+              <th>Pernyataan B</th>
+            </tr>
+          </thead>
+          <tbody id="questions">
+            <!-- Questions will be dynamically inserted here -->
+          </tbody>
+        </table>
+        <button type="button" id="submit-btn">Submit</button>
       </form>
       <div id="result"></div>
       <div
@@ -27,12 +35,12 @@
           id="shopee-link"
           href="https://shopee.co.id/zahraziza.mfo"
           target="_blank"
+          style="font-size: 18px; color: blue; text-decoration: underline"
         >
-          Visit Shopee Store
+          Lihat Produk Shopee di sini
         </a>
       </div>
     </div>
-    <button type="button" id="submit-btn" disabled>Submit</button>
     <script src="script.js"></script>
   </body>
 </html>

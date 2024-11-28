@@ -185,88 +185,58 @@ const questions = [
     result: { a: "T", b: "F" },
   },
 ];
-
 const questionsDiv = document.getElementById("questions");
-const progressBar = document.getElementById("progress-bar");
-const progressCounter = document.getElementById("progress-counter");
-const submitBtn = document.getElementById("submit-btn");
-
-let totalQuestions = questions.length;
-let answeredQuestions = 0;
+const resultDiv = document.getElementById("result");
+const linkContainer = document.getElementById("link-container");
 
 // Generate questions dynamically
 questions.forEach((q) => {
-  const questionDiv = document.createElement("div");
-  questionDiv.className = "question";
+  const row = document.createElement("tr");
 
-  questionDiv.innerHTML = `
-    <h2>${q.no}. ${q.a}</h2>
-    <div class="options">
-      <label>
-        <input type="radio" name="q${q.no}" value="a" required>
-        Setuju
-      </label>
-      <label>
-        <input type="radio" name="q${q.no}" value="b" required>
-        Tidak Setuju
-      </label>
-    </div>
-  `;
+  const noCell = document.createElement("td");
+  noCell.textContent = q.no;
+  row.appendChild(noCell);
 
-  questionsDiv.appendChild(questionDiv);
+  const aCell = document.createElement("td");
+  aCell.textContent = q.a;
+  row.appendChild(aCell);
+
+  const aRadioCell = document.createElement("td");
+  aRadioCell.innerHTML = `<input type="radio" name="q${q.no}" value="a" required>`;
+  row.appendChild(aRadioCell);
+
+  const bRadioCell = document.createElement("td");
+  bRadioCell.innerHTML = `<input type="radio" name="q${q.no}" value="b" required>`;
+  row.appendChild(bRadioCell);
+
+  const bCell = document.createElement("td");
+  bCell.textContent = q.b;
+  row.appendChild(bCell);
+
+  questionsDiv.appendChild(row);
 });
 
-// Update progress bar and counter
-function updateProgress() {
-  const answeredInputs = document.querySelectorAll(
-    'input[type="radio"]:checked'
-  ).length;
-  const progress = (answeredInputs / totalQuestions) * 100;
-  progressBar.style.width = `${progress}%`;
-  answeredQuestions = answeredInputs;
-
-  // Update counter text
-  progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
-
-  // Enable submit button when all questions are answered
-  submitBtn.disabled = answeredQuestions < totalQuestions;
-}
-
-// Initialize progress counter on page load
-document.addEventListener("DOMContentLoaded", () => {
-  progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
-  progressBar.style.width = "0%";
-});
-
-// Add event listener to all radio buttons
-document.querySelectorAll('input[type="radio"]').forEach((radio) => {
-  radio.addEventListener("change", updateProgress);
-});
-
-// Submit button logic
-submitBtn.addEventListener("click", () => {
+// Calculate results and display URL
+document.getElementById("submit-btn").addEventListener("click", () => {
   const answers = Array.from(
     new FormData(document.getElementById("quiz-form")).entries()
   );
   const results = { I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
-  answers.forEach(([key, value]) => {
-    const questionNo = key.replace("q", ""); // Extract question number
-    const question = questions.find((q) => q.no === parseInt(questionNo));
-    const choice = question.result[value]; // Get result based on the selected option
+  // Iterasi melalui jawaban
+  answers.forEach(([key, value], index) => {
+    const question = questions[index];
+    const choice = question.result[value]; // Ambil hasil berdasarkan pilihan (a atau b)
     results[choice]++;
   });
 
-  // Determine final MBTI result
+  // Tentukan hasil akhir
   const mbti = [
     results.I > results.E ? "I" : "E",
     results.S > results.N ? "S" : "N",
     results.T > results.F ? "T" : "F",
     results.J > results.P ? "J" : "P",
   ];
-
-  document.getElementById(
-    "result"
-  ).textContent = `Your MBTI Type is: ${mbti.join("")}`;
-  document.getElementById("link-container").style.display = "block";
+  resultDiv.textContent = `Your MBTI Type is: ${mbti.join("")}`;
+  linkContainer.style.display = "block"; // Tampilkan link Shopee
 });
