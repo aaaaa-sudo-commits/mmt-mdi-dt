@@ -88,26 +88,30 @@ h1 {
 /* Submit Button */
 #submit-btn {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #5c5246; /* Muted dark brown */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 700px;
+  background-color: #ff9800; /* Bright Orange */
   color: white;
   border: none;
-  padding: 15px 0;
+  padding: 12px 0;
   font-size: 16px;
   cursor: pointer;
-  border-top: 2px solid #d3cec7;
+  border-radius: 8px;
+  border: 2px solid #e57300; /* Slightly darker orange for definition */
   z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #submit-btn:disabled {
-  background-color: #9b9284; /* Softer muted brown for disabled */
+  background-color: #ffd6a2; /* Softer muted orange for disabled */
   cursor: not-allowed;
 }
 
 #submit-btn:hover:not(:disabled) {
-  background-color: #3f362e; /* Darker shade on hover */
+  background-color: #e57300; /* Darker orange for hover effect */
 }
 
 /* Result and Link */
