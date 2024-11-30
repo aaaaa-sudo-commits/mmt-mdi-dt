@@ -207,7 +207,7 @@ const mbtiUrls = {
   ISFJ: "https://shopee.co.id/ISFJ-MBTI-Style-Match-i.730552667.29369048652?sp_atk=c8fe4f83-a8fc-49d9-b6f1-6ee1e2afa463",
   INFJ: "https://shopee.co.id/product/730552667/27168449902/",
   INTJ: "https://shopee.co.id/INTJ-MBTI-Style-Match-i.730552667.25338644888?sp_atk=d926166b-70c9-4b95-9937-30c016701785",
-  ISTP: "https://shopee.co.id/zahraziza.mfo",
+  ISTP: "https://shopee.co.id/product/730552667/26819114324/",
   ISFP: "https://shopee.co.id/ISFP-MBTI-Style-Match-i.730552667.27969121251?sp_atk=f960509e-8599-4205-98ba-483d59ce18a3",
   INFP: "https://shopee.co.id/INFP-MBTI-Style-Match-i.730552667.27119046626?sp_atk=16a93e01-d541-4b16-87d6-b9c00958ab58",
   INTP: "https://shopee.co.id/product/730552667/27918459065/",
