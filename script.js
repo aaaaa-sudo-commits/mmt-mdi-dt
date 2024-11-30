@@ -1,7 +1,7 @@
 const questions = [
   {
     no: 1,
-    a: "Spontan, Fleksibel, tidak diikat waktu",
+    a: "Spontan, Fleksibel, tidak diikat waktu dibanding terencana dan memiliki deadline jelas",
     b: "Terencana dan memiliki deadline jelas",
     result: { a: "P", b: "J" },
   },
@@ -17,46 +17,51 @@ const questions = [
     b: "Perubahan mendadak tidak jadi masalah",
     result: { a: "J", b: "P" },
   },
-  { no: 4, a: "Objektif", b: "Subyektif", result: { a: "T", b: "F" } },
+  {
+    no: 4,
+    a: "Objek daripada subjek",
+    b: "Subyektif",
+    result: { a: "T", b: "F" },
+  },
   {
     no: 5,
-    a: "Menemukan dan mengembangkan ide dengan mendiskusikannya",
+    a: "Menemukan dan mengembangkan ide dengan mendiskusikannya dibanding dengan merenungkannya",
     b: "Menemukan dan mengembangkan ide dengan merenungkan",
     result: { a: "E", b: "I" },
   },
   {
     no: 6,
-    a: "Bergerak dari gambaran umum baru ke detail",
+    a: "Bergerak dari gambaran umum baru ke detail dibanding dari detail ke gambaran umum sebagai kesimpulan akhir",
     b: "Bergerak dari detail ke gambaran umum sebagai kesimpulan akhir",
     result: { a: "N", b: "S" },
   },
   {
     no: 7,
-    a: "Berorientasi pada dunia eksternal (kegiatan, orang)",
+    a: "Berorientasi pada dunia eksternal (kegiatan, orang) dibanding dunia internal (memori, pemikiran, ide)",
     b: "Berorientasi pada dunia internal (memori, pemikiran, ide)",
     result: { a: "E", b: "I" },
   },
   {
     no: 8,
-    a: "Berbicara mengenai masalah yang dihadapi hari ini dan langkah-langkah praktis mengatasinya",
+    a: "Berbicara mengenai masalah yang dihadapi hari ini dan langkah-langkah praktis mengatasinya dibanding mengenai visi masa depan dan konsep-konsep mengenai visi tersebut",
     b: "Berbicara mengenai visi masa depan dan konsep-konsep mengenai visi tersebut",
     result: { a: "S", b: "N" },
   },
   {
     no: 9,
-    a: "Diyakinkan dengan penjelasan yang menyentuh perasaan",
+    a: "Diyakinkan dengan penjelasan yang menyentuh perasaan dibanding dengan penjelasan yang masuk akal",
     b: "Diyakinkan dengan penjelasan yang masuk akal",
     result: { a: "F", b: "T" },
   },
   {
     no: 10,
-    a: "Fokus pada sedikit hobi namun mendalam",
+    a: "Fokus pada sedikit hobi namun mendalam daripada pada banyak hobi secara luas dan umum",
     b: "Fokus pada banyak hobi secara luas dan umum",
     result: { a: "I", b: "E" },
   },
   {
     no: 11,
-    a: "Tertutup dan mandiri",
+    a: "Tertutup dan mandiri daripada sosial dan ekspresif",
     b: "Sosial dan ekspresif",
     result: { a: "I", b: "E" },
   },
@@ -68,13 +73,13 @@ const questions = [
   },
   {
     no: 13,
-    a: "Menggunakan pengalaman sebagai pedoman",
+    a: "Menggunakan pengalaman sebagai pedoman daripada imajinasi dan perenungan sebagai pedoman",
     b: "Menggunakan imajinasi dan perenungan sebagai pedoman",
     result: { a: "S", b: "N" },
   },
   {
     no: 14,
-    a: "Berorientasi tugas dan job description",
+    a: "Berorientasi tugas dan job description dibanding pada manusia dan hubungan",
     b: "Berorientasi pada manusia dan hubungan",
     result: { a: "T", b: "F" },
   },
@@ -92,55 +97,55 @@ const questions = [
   },
   {
     no: 17,
-    a: "Mengambil keputusan berdasar logika dan aturan main",
+    a: "Mengambil keputusan berdasar logika dan aturan main dibanding berdasar perasaan pribadi dan kondisi orang lain",
     b: "Mengambil keputusan berdasar perasaan pribadi dan kondisi orang lain",
     result: { a: "T", b: "F" },
   },
   {
     no: 18,
-    a: "Bebas dan dinamis",
+    a: "Bebas dan dinamis daripada prosedural dan tradisional",
     b: "Prosedural dan tradisional",
     result: { a: "N", b: "S" },
   },
   {
     no: 19,
-    a: "Berorientasi pada hasil",
+    a: "Berorientasi pada hasil daripada proses",
     b: "Berorientasi pada proses",
     result: { a: "J", b: "P" },
   },
   {
     no: 20,
-    a: "Beraktifitas sendirian di rumah menyenangkan",
+    a: "Beraktifitas sendirian di rumah menyenangkan daripada di luar rumah",
     b: "Beraktifitas sendirian di rumah membosankan",
     result: { a: "I", b: "E" },
   },
   {
     no: 21,
-    a: "Membiarkan orang lain bertindak bebas asalkan tujuan tercapai",
+    a: "Membiarkan orang lain bertindak bebas asalkan tujuan tercapai daripada mengatur orang lain dengan tata tertib agar tujuan tercapai",
     b: "Mengatur orang lain dengan tata tertib agar tujuan tercapai",
     result: { a: "P", b: "J" },
   },
   {
     no: 22,
-    a: "Memilih ide inspiratif lebih penting daripada fakta",
+    a: "Memilih ide inspiratif lebih penting daripada fakta dibanding memilih fakta lebih penting daripada ide inspiratif",
     b: "Memilih fakta lebih penting daripada ide inspiratif",
     result: { a: "N", b: "S" },
   },
   {
     no: 23,
-    a: "Mengemukakan tujuan dan sasaran lebih dahulu",
+    a: "Mengemukakan tujuan dan sasaran lebih dahulu dibanding mengemukakan kesepakatan terlebih dahulu",
     b: "Mengemukakan kesepakatan terlebih dahulu",
     result: { a: "T", b: "F" },
   },
   {
     no: 24,
-    a: "Fokus pada target dan mengabaikan hal-hal baru",
+    a: "Fokus pada target dan mengabaikan hal-hal baru daripada Memperhatikan hal-hal baru dan siap menyesuaikan diri serta mengubah target",
     b: "Memperhatikan hal-hal baru dan siap menyesuaikan diri serta mengubah target",
     result: { a: "J", b: "P" },
   },
   {
     no: 25,
-    a: "Kontinuitas dan stabilitas lebih diutamakan",
+    a: "Kontinuitas dan stabilitas lebih diutamakan dibandingkan perubahan dan variasi",
     b: "Perubahan dan variasi lebih diutamakan",
     result: { a: "S", b: "N" },
   },
@@ -152,7 +157,7 @@ const questions = [
   },
   {
     no: 27,
-    a: "Bertindak step by step dengan timeframe yang jelas",
+    a: "Bertindak step by step dengan timeframe yang jelas daripada dengan semangat tanpa menggunakan timeframe",
     b: "Bertindak dengan semangat tanpa menggunakan timeframe",
     result: { a: "S", b: "N" },
   },
@@ -163,17 +168,22 @@ const questions = [
     result: { a: "E", b: "I" },
   },
 
-  { no: 29, a: "Menganalisa", b: "Berempati", result: { a: "T", b: "F" } },
+  {
+    no: 29,
+    a: "Menganalisa daripada berempati",
+    b: "Berempati",
+    result: { a: "T", b: "F" },
+  },
 
   {
     no: 30,
-    a: "Menghargai seseorang karena sifat dan perilakunya",
+    a: "Menghargai seseorang karena sifat dan perilakunya daripada karena skill dan faktor teknis",
     b: "Menghargai seseorang karena skill dan faktor teknis",
     result: { a: "F", b: "T" },
   },
   {
     no: 31,
-    a: "Merasa nyaman bila situasi tetap terbuka terhadap pilihan-pilihan lain",
+    a: "Merasa nyaman bila situasi tetap terbuka terhadap pilihan-pilihan lain dibandingkan Merasa tenang bila semua sudah diputuskan",
     b: "Merasa tenang bila semua sudah diputuskan",
     result: { a: "P", b: "J" },
   },
@@ -190,6 +200,40 @@ const questionsDiv = document.getElementById("questions");
 const progressBar = document.getElementById("progress-bar");
 const progressCounter = document.getElementById("progress-counter");
 const submitBtn = document.getElementById("submit-btn");
+
+// Mapping MBTI types to their respective URLs
+const mbtiUrls = {
+  ISTJ: "https://shopee.co.id/ISTJ-MBTI-Style-Match-i.730552667.25438866833?sp_atk=a64d7409-1ce4-4c6f-8f88-598a88387342",
+  ISFJ: "https://shopee.co.id/ISFJ-MBTI-Style-Match-i.730552667.29369048652?sp_atk=c8fe4f83-a8fc-49d9-b6f1-6ee1e2afa463",
+  INFJ: "https://shopee.co.id/zahraziza.mfo",
+  INTJ: "https://shopee.co.id/INTJ-MBTI-Style-Match-i.730552667.25338644888?sp_atk=d926166b-70c9-4b95-9937-30c016701785",
+  ISTP: "https://shopee.co.id/zahraziza.mfo",
+  ISFP: "https://shopee.co.id/ISFP-MBTI-Style-Match-i.730552667.27969121251?sp_atk=f960509e-8599-4205-98ba-483d59ce18a3",
+  INFP: "https://shopee.co.id/INFP-MBTI-Style-Match-i.730552667.27119046626?sp_atk=16a93e01-d541-4b16-87d6-b9c00958ab58",
+  INTP: "https://shopee.co.id/zahraziza.mfo",
+  ESTP: "https://shopee.co.id/ESTP-MBTI-Style-Match-i.730552667.22190542702?sp_atk=1d7bda99-d516-46be-be38-cd2e08a23929",
+  ESFP: "https://shopee.co.id/ESFP-MBTI-Style-Match-i.730552667.24338878831?sp_atk=50c0fef1-5019-4ba9-a23e-50348fb8b824",
+  ENFP: "https://shopee.co.id/ENFP-MBTI-Style-Match-i.730552667.27669044965?sp_atk=2896f3b4-52e1-4205-b781-e3176a00ee66",
+  ENTP: "https://shopee.co.id/ENTP-MBTI-Style-Match-i.730552667.25688866270?sp_atk=9ea02ee6-af98-466a-8e7b-cf119c13ca58",
+  ESTJ: "https://shopee.co.id/ESTJ-MBTI-Style-Match-i.730552667.25838883656?sp_atk=e8c5a0f3-8101-4535-a347-af7592ab1a22",
+  ESFJ: "https://shopee.co.id/ESFJ-MBTI-Style-Match-i.730552667.28169113795?sp_atk=23e8332e-aee5-4087-92ae-0f87b83f67b6",
+  ENFJ: "https://shopee.co.id/ENFJ-MBTI-Style-Match-i.730552667.28369047666?sp_atk=124aa966-6c77-4eb9-a036-6bbc8a45f4c4",
+  ENTJ: "https://shopee.co.id/ENTJ-MBTI-Style-Match-i.730552667.28969042880?sp_atk=07beeed4-5078-4c91-b7f2-c97f87013b89",
+};
+
+// ISFJ= https://shopee.co.id/ISFJ-MBTI-Style-Match-i.730552667.29369048652?sp_atk=c8fe4f83-a8fc-49d9-b6f1-6ee1e2afa463
+// ENTJ= https://shopee.co.id/ENTJ-MBTI-Style-Match-i.730552667.28969042880?sp_atk=07beeed4-5078-4c91-b7f2-c97f87013b89
+// ENFJ= https://shopee.co.id/ENFJ-MBTI-Style-Match-i.730552667.28369047666?sp_atk=124aa966-6c77-4eb9-a036-6bbc8a45f4c4
+// ESFJ= https://shopee.co.id/ESFJ-MBTI-Style-Match-i.730552667.28169113795?sp_atk=23e8332e-aee5-4087-92ae-0f87b83f67b6
+// ISFP= https://shopee.co.id/ISFP-MBTI-Style-Match-i.730552667.27969121251?sp_atk=f960509e-8599-4205-98ba-483d59ce18a3
+// ENFP= https://shopee.co.id/ENFP-MBTI-Style-Match-i.730552667.27669044965?sp_atk=2896f3b4-52e1-4205-b781-e3176a00ee66
+// ESTP= https://shopee.co.id/ESTP-MBTI-Style-Match-i.730552667.22190542702?sp_atk=1d7bda99-d516-46be-be38-cd2e08a23929
+// ISTJ=  https://shopee.co.id/ISTJ-MBTI-Style-Match-i.730552667.25438866833?sp_atk=a64d7409-1ce4-4c6f-8f88-598a88387342
+// INTJ: "https://shopee.co.id/INTJ-MBTI-Style-Match-i.730552667.25338644888?sp_atk=d926166b-70c9-4b95-9937-30c016701785",
+// INFP= https://shopee.co.id/INFP-MBTI-Style-Match-i.730552667.27119046626?sp_atk=16a93e01-d541-4b16-87d6-b9c00958ab58
+// ENTP= https://shopee.co.id/ENTP-MBTI-Style-Match-i.730552667.25688866270?sp_atk=9ea02ee6-af98-466a-8e7b-cf119c13ca58
+// ESTJ= https://shopee.co.id/ESTJ-MBTI-Style-Match-i.730552667.25838883656?sp_atk=e8c5a0f3-8101-4535-a347-af7592ab1a22
+// ESFP= https://shopee.co.id/ESFP-MBTI-Style-Match-i.730552667.24338878831?sp_atk=50c0fef1-5019-4ba9-a23e-50348fb8b824
 
 let totalQuestions = questions.length;
 let answeredQuestions = 0;
@@ -265,8 +309,23 @@ submitBtn.addEventListener("click", () => {
     results.J > results.P ? "J" : "P",
   ];
 
+  const mbtiType = mbti.join("");
+
+  // Get the URL corresponding to the MBTI result
+  const resultUrl = mbtiUrls[mbtiType];
+
+  // Display the MBTI result and corresponding URL
   document.getElementById(
     "result"
-  ).textContent = `Your MBTI Type is: ${mbti.join("")}`;
+  ).textContent = `Your MBTI Type is: ${mbtiType}`;
+  document.getElementById(
+    "shopee-link"
+  ).innerHTML = `<a href="${resultUrl}" target="_blank">Discover Your Style</a>`;
   document.getElementById("link-container").style.display = "block";
+
+  // Scroll to the result section smoothly
+  document.getElementById("result").scrollIntoView({
+    behavior: "smooth", // Smooth scrolling effect
+    block: "center", // Scroll to the center of the result section
+  });
 });
