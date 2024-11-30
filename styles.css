@@ -147,3 +147,8 @@ h1 {
     font-size: 14px;
   }
 }
+
+.question.answered {
+  background: #d7f3e3; /* Light green background for answered questions */
+  border: 1px solid #8bcf97; /* Green border */
+}

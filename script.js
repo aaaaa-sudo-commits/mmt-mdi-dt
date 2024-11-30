@@ -260,7 +260,7 @@ questions.forEach((q) => {
   questionsDiv.appendChild(questionDiv);
 });
 
-// Update progress bar and counter
+// Update progress bar, counter, and question background
 function updateProgress() {
   const answeredInputs = document.querySelectorAll(
     'input[type="radio"]:checked'
@@ -272,8 +272,20 @@ function updateProgress() {
   // Update counter text
   progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
 
+  // Add 'answered' class to answered questions
+  document.querySelectorAll(".question").forEach((question) => {
+    const inputs = question.querySelectorAll('input[type="radio"]');
+    const isAnswered = Array.from(inputs).some((input) => input.checked);
+
+    if (isAnswered) {
+      question.classList.add("answered");
+    } else {
+      question.classList.remove("answered");
+    }
+  });
+
   // Enable submit button when all questions are answered
-  submitBtn.disabled = answeredQuestions < totalQuestions;
+  // submitBtn.disabled = answeredQuestions < totalQuestions;
 }
 
 // Initialize progress counter on page load
@@ -289,6 +301,32 @@ document.querySelectorAll('input[type="radio"]').forEach((radio) => {
 
 // Submit button logic
 submitBtn.addEventListener("click", () => {
+  // Check for unanswered questions
+  const unanswered = Array.from(document.querySelectorAll(".question")).find(
+    (question) => {
+      const inputs = question.querySelectorAll('input[type="radio"]');
+      return !Array.from(inputs).some((input) => input.checked);
+    }
+  );
+
+  if (unanswered) {
+    // Scroll to the first unanswered question
+    unanswered.scrollIntoView({
+      behavior: "smooth", // Smooth scrolling effect
+      block: "center", // Center the question in the viewport
+    });
+
+    // Optional: Highlight the unanswered question
+    unanswered.style.border = "2px solid red";
+    setTimeout(() => {
+      unanswered.style.border = ""; // Remove highlight after 2 seconds
+    }, 2000);
+
+    // alert("Please answer all questions before submitting!");
+    return; // Stop further execution
+  }
+
+  // If all questions are answered, calculate the result
   const answers = Array.from(
     new FormData(document.getElementById("quiz-form")).entries()
   );
