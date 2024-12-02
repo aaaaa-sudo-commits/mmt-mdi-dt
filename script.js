@@ -1,7 +1,7 @@
 const questions = [
   {
     no: 1,
-    a: "Spontan, Fleksibel, tidak diikat waktu dibanding terencana dan memiliki deadline jelas",
+    a: "Spontan, fleksibel, tidak diikat waktu dibanding terencana dan memiliki deadline jelas",
     b: "Terencana dan memiliki deadline jelas",
     result: { a: "P", b: "J" },
   },
@@ -91,7 +91,7 @@ const questions = [
   },
   {
     no: 16,
-    a: "SOP sangat membantu",
+    a: "SOP sangat membantu bukan membosankan",
     b: "SOP sangat membosankan",
     result: { a: "S", b: "N" },
   },
@@ -139,7 +139,7 @@ const questions = [
   },
   {
     no: 24,
-    a: "Fokus pada target dan mengabaikan hal-hal baru daripada Memperhatikan hal-hal baru dan siap menyesuaikan diri serta mengubah target",
+    a: "Fokus pada target dan mengabaikan hal-hal baru daripada memperhatikan hal-hal baru dan siap menyesuaikan diri serta mengubah target",
     b: "Memperhatikan hal-hal baru dan siap menyesuaikan diri serta mengubah target",
     result: { a: "J", b: "P" },
   },
@@ -183,7 +183,7 @@ const questions = [
   },
   {
     no: 31,
-    a: "Merasa nyaman bila situasi tetap terbuka terhadap pilihan-pilihan lain dibandingkan Merasa tenang bila semua sudah diputuskan",
+    a: "Merasa nyaman bila situasi tetap terbuka terhadap pilihan-pilihan lain dibandingkan merasa tenang bila semua sudah diputuskan",
     b: "Merasa tenang bila semua sudah diputuskan",
     result: { a: "P", b: "J" },
   },
