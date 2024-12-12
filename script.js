@@ -196,6 +196,89 @@ const questions = [
   },
 ];
 
+const mbtiDescriptions = {
+  INTJ: {
+    name: "Sang Perancang (INTJ)",
+    description: "Pemikir strategis yang hobi bikin rencana besar",
+    style: "Gaya Goth: gelap, misterius, kuat",
+  },
+  INTP: {
+    name: "Sang Pemikir (INTP)",
+    description: "Si rasional yang penuh analisis",
+    style: "Gaya Urban: modern, keren, fleksibel",
+  },
+  ENTJ: {
+    name: "Sang Komandan (ENTJ)",
+    description: "Pemimpin tegas yang penuh strategi dan tahu cara mengarahkan",
+    style: "Gaya Minimal: sederhana, rapi, praktis",
+  },
+  ENTP: {
+    name: "Sang Pendebat Seru (ENTP)",
+    description: "Cerdas, suka tantangan, dan jago argumen",
+    style: "Gaya Electic: campuran, unik, eksperimental",
+  },
+  INFJ: {
+    name: "Sang Pendukung (INFJ)",
+    description: "Bijak, mendukung, dan inspiratif",
+    style: "Gaya Hipster: gaul, unik, mix jadul-modern",
+  },
+  INFP: {
+    name: "Sang Penengah (INFP)",
+    description: "Tenang, damai, dan suka menyatukan orang",
+    style: "Gaya Romantic: manis, lembut, anggun",
+  },
+  ENFJ: {
+    name: "Sang Penggerak (ENFJ)",
+    description: "Pemimpin yang penuh semangat dan motivasi",
+    style: "Gaya Chic: mewah, trendy, lembut",
+  },
+  ENFP: {
+    name: "Sang Juru Kampanye (ENFP)",
+    description: "Energik, antusias, dan penyemangat kelompok",
+    style: "Gaya Boho: campuran, santai, kreatif",
+  },
+  ISTJ: {
+    name: "Sang Ahli Logistik (ISTJ)",
+    description: "Teliti, terorganisir, dan bertanggung jawab",
+    style: "Gaya Klasik: abadi, anggun, rapi",
+  },
+  ISFJ: {
+    name: "Sang Pelindung (ISFJ)",
+    description: "Peduli, setia, dan suka membantu orang lain",
+    style: "Gaya Retro: klasik, penuh cerita, ceria",
+  },
+  ESTJ: {
+    name: "Sang Eksekutif (ESTJ)",
+    description: "Tegas dan fokus menjalankan tugas",
+    style: "Gaya Formal: rapi, sopan, elegan",
+  },
+  ESFJ: {
+    name: "Sang Konsultan (ESFJ)",
+    description: "Ramah, perhatian, dan membangun hubungan",
+    style: "Gaya Preppy: sopan, rapi, tradisional",
+  },
+  ISTP: {
+    name: "Sang Pengatur (ISTP)",
+    description: "Praktis, kreatif, dan mahir dalam banyak hal",
+    style: "Gaya Androgini: netral, simpel, unik",
+  },
+  ISFP: {
+    name: "Sang Petualang (ISFP)",
+    description: "Bebas, artistik, dan penuh spontanitas",
+    style: "Gaya Grunge: berantakan, kasual, anti mainstream",
+  },
+  ESTP: {
+    name: "Sang Pengusaha (ESTP)",
+    description: "Berani, gesit, dan suka hidup penuh tantangan",
+    style: "Gaya Sporty: nyaman, kasual, fungsional",
+  },
+  ESFP: {
+    name: "Sang Penghibur (ESFP)",
+    description: "Ceria, menghibur, dan membuat suasana jadi hidup",
+    style: "Gaya Punk: rebel, berani, kreatif",
+  },
+};
+
 const questionsDiv = document.getElementById("questions");
 const progressBar = document.getElementById("progress-bar");
 const progressCounter = document.getElementById("progress-counter");
@@ -261,10 +344,11 @@ questions.forEach((q) => {
 });
 
 // Update progress bar, counter, and question background
+// Update progress bar, counter, and question background
 function updateProgress() {
   const answeredInputs = document.querySelectorAll(
     'input[type="radio"]:checked'
-  ).length;
+  ).length; // Count checked inputs
   const progress = (answeredInputs / totalQuestions) * 100;
   progressBar.style.width = `${progress}%`;
   answeredQuestions = answeredInputs;
@@ -290,7 +374,7 @@ function updateProgress() {
 
 // Initialize progress counter on page load
 document.addEventListener("DOMContentLoaded", () => {
-  progressCounter.textContent = `${answeredQuestions}/${totalQuestions}`;
+  progressCounter.textContent = `0/${totalQuestions}`;
   progressBar.style.width = "0%";
 });
 
@@ -299,9 +383,8 @@ document.querySelectorAll('input[type="radio"]').forEach((radio) => {
   radio.addEventListener("change", updateProgress);
 });
 
-// Submit button logic
+// Initialize progress counter on page load
 submitBtn.addEventListener("click", () => {
-  // Check for unanswered questions
   const unanswered = Array.from(document.querySelectorAll(".question")).find(
     (question) => {
       const inputs = question.querySelectorAll('input[type="radio"]');
@@ -310,36 +393,31 @@ submitBtn.addEventListener("click", () => {
   );
 
   if (unanswered) {
-    // Scroll to the first unanswered question
     unanswered.scrollIntoView({
-      behavior: "smooth", // Smooth scrolling effect
-      block: "center", // Center the question in the viewport
+      behavior: "smooth",
+      block: "center",
     });
 
-    // Optional: Highlight the unanswered question
     unanswered.style.border = "2px solid red";
     setTimeout(() => {
-      unanswered.style.border = ""; // Remove highlight after 2 seconds
+      unanswered.style.border = "";
     }, 2000);
 
-    // alert("Please answer all questions before submitting!");
-    return; // Stop further execution
+    return;
   }
 
-  // If all questions are answered, calculate the result
   const answers = Array.from(
     new FormData(document.getElementById("quiz-form")).entries()
   );
   const results = { I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
   answers.forEach(([key, value]) => {
-    const questionNo = key.replace("q", ""); // Extract question number
+    const questionNo = key.replace("q", "");
     const question = questions.find((q) => q.no === parseInt(questionNo));
-    const choice = question.result[value]; // Get result based on the selected option
+    const choice = question.result[value];
     results[choice]++;
   });
 
-  // Determine final MBTI result
   const mbti = [
     results.I > results.E ? "I" : "E",
     results.S > results.N ? "S" : "N",
@@ -348,22 +426,23 @@ submitBtn.addEventListener("click", () => {
   ];
 
   const mbtiType = mbti.join("");
-
-  // Get the URL corresponding to the MBTI result
+  const mbtiResult = mbtiDescriptions[mbtiType];
   const resultUrl = mbtiUrls[mbtiType];
 
-  // Display the MBTI result and corresponding URL
-  document.getElementById(
-    "result"
-  ).textContent = `Your MBTI Type is: ${mbtiType}`;
-  document.getElementById(
-    "shopee-link"
-  ).innerHTML = `<a href="${resultUrl}" target="_blank">Discover Your Style</a>`;
-  document.getElementById("link-container").style.display = "block";
+  if (mbtiResult) {
+    document.getElementById("result").innerHTML = `<h2>${mbtiResult.name}</h2>
+      <p>${mbtiResult.description}</p>
+      <p><strong> ${mbtiResult.style}</strong></p>
+      <a href="${resultUrl}" target="_blank" style="color: #007bff; text-decoration: underline;">
+        Temukan gaya kamu di Shopee
+      </a>`;
+  } else {
+    document.getElementById("result").textContent =
+      "Hasil tidak ditemukan. Silakan coba lagi.";
+  }
 
-  // Scroll to the result section smoothly
   document.getElementById("result").scrollIntoView({
-    behavior: "smooth", // Smooth scrolling effect
-    block: "center", // Scroll to the center of the result section
+    behavior: "smooth",
+    block: "center",
   });
 });
